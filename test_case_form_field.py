@@ -1,36 +1,48 @@
-#importing time module
+# importing time module
 import time
 
 # importing selenium webdriver and By class
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-#setting up chrome driver
+# setting up chrome driver
 driver = webdriver.Chrome()
 
-#opening the website
-driver.get("https://www.saucedemo.com/")
+# opening the website
+driver.get("https://www.goibibo.com/")
 
-#find username field and enter username
-username_field = driver.find_element(By.ID, "user-name")
-username_field.send_keys("standard_user")
+# wait for DOM to load
+# Note: On my computer, the website takes a lot of time to load.
+driver.implicitly_wait(25)
 
-#find password field and enter password
-password_field = driver.find_element(By.ID, "password")
-password_field.send_keys("secret_sauce")
+# find the modal and close it
+driver.find_element(By.XPATH, "//span[@role='presentation']").click()
 
-#find login button and click
-login_button = driver.find_element(By.ID, "login-button")
-login_button.click()
 
-#wait for 3 seconds
+# find from field and click
+from_field = driver.find_element(
+    By.XPATH, "//div[@class='sc-12foipm-34 dVpEne']//p[@class='sc-12foipm-27 bhYNaI fswWidgetPlaceholder'][normalize-space()='Enter city or airport']").click()
+
+# send keys to activated form field
+form_field_active = driver.find_element(
+    By.XPATH, "//div[@class='sc-12foipm-37 godvBN']//input").send_keys("New York")
+
+# wait for 3 seconds
 time.sleep(3)
 
-#check if login was successful with basic logging
-if driver.current_url == "https://www.saucedemo.com/inventory.html":
-    print("Login successful!")
-else:
-    print("Login failed!")
+# from_field.send_keys("New York")
+
+# Send New York data to the From field
+# from_field.send_keys("New York")
+
+# wait for 3 seconds
+time.sleep(3)
 
 # Close browser
 driver.quit()
+
+# # check if login was successful with basic logging
+# if driver.current_url == "https://www.saucedemo.com/inventory.html":
+#     print("Login successful!")
+# else:
+#     print("Login failed!")
