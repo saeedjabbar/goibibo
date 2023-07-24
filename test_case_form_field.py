@@ -12,8 +12,8 @@ driver = webdriver.Chrome()
 driver.get("https://www.goibibo.com/")
 
 # wait for DOM to load
-# Note: On my computer, the website takes a lot of time to load.
-driver.implicitly_wait(25)
+# Note: On my computer, the website takes a lot of time to load, adjust based on your connection.
+driver.implicitly_wait(15)
 
 # find the modal and close it
 driver.find_element(By.XPATH, "//span[@role='presentation']").click()
@@ -27,22 +27,12 @@ from_field = driver.find_element(
 form_field_active = driver.find_element(
     By.XPATH, "//div[@class='sc-12foipm-37 godvBN']//input").send_keys("New York")
 
-# wait for 3 seconds
-time.sleep(3)
+# Find the dropdown menu
+drop_down_menu = driver.find_element(
+    by=By.XPATH, value="//div[@class='sc-12foipm-14 bOwCin']//li[4]").click()
 
-# from_field.send_keys("New York")
-
-# Send New York data to the From field
-# from_field.send_keys("New York")
-
-# wait for 3 seconds
+# wait for 3 seconds to see the selection
 time.sleep(3)
 
 # Close browser
 driver.quit()
-
-# # check if login was successful with basic logging
-# if driver.current_url == "https://www.saucedemo.com/inventory.html":
-#     print("Login successful!")
-# else:
-#     print("Login failed!")
