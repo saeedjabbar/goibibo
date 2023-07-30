@@ -21,15 +21,15 @@ driver.find_element(By.XPATH, "//span[@role='presentation']").click()
 
 # find from field and click
 from_field = driver.find_element(
-    By.XPATH, "//div[@class='sc-12foipm-34 dVpEne']//p[@class='sc-12foipm-27 bhYNaI fswWidgetPlaceholder'][normalize-space()='Enter city or airport']").click()
+    By.XPATH, "//div[@class='sc-12foipm-35 eZvdEH']//p[@class='sc-12foipm-20 hKRKsX'][normalize-space()='Enter city or airport']").click()
 
 # send keys to activated form field
 form_field_active = driver.find_element(
-    By.XPATH, "//div[@class='sc-12foipm-37 godvBN']//input").send_keys("New York")
+    By.XPATH, "//input[@type='text']").send_keys("New York")
 
 # Find the dropdown menu
 drop_down_menu = driver.find_element(
-    by=By.XPATH, value="//div[@class='sc-12foipm-14 bOwCin']//li[4]").click()
+    by=By.XPATH, value="//div[@class='sc-12foipm-14 IAfj']//li[1]").click()
 
 # wait for 3 seconds to see the selection
 time.sleep(3)
