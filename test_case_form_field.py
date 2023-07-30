@@ -29,7 +29,7 @@ form_field_active = driver.find_element(
 
 # Find the dropdown menu
 drop_down_menu = driver.find_element(
-    by=By.XPATH, value="//div[@class='sc-12foipm-14 IAfj']//li[1]").click()
+    by=By.XPATH, value="//body/div[@id='root']/div[@class='sc-1gt8xf5-0 cEQQxj']/div[@class='sc-1gt8xf5-3 gWnzGY']/div[@class='sc-12foipm-30 fPhIcX']/div[@class='sc-12foipm-14 IAfj']/div[@class='sc-12foipm-34 keCaow']/div[@class='sc-12foipm-35 eZvdEH']/div[@class='sc-12foipm-37 idMXOL']/ul[@id='autoSuggest-list']/li[4]/div[1]").click()
 
 # wait for 3 seconds to see the selection
 time.sleep(3)
